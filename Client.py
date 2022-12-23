@@ -42,7 +42,7 @@ def recvMessage(conn,cipher):
     
     
 def cmd(command):
-    return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.read().decode(errors='repalce').strip()
+    return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.read().decode(errors='replace').strip()
      
 
     
