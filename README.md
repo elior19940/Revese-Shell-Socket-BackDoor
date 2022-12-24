@@ -10,6 +10,7 @@ This program is a simple backdoor that allows you to run commands on the victim'
 ### Running the program
 To successfully run the program, you need to install the required dependencies by running the following command:
 - pip install -r requirements.txt
+
 You can use a tool like WireShark to verify that the session is completely encrypted.
 
 ### Detection and evasion
