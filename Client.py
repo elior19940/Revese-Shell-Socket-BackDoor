@@ -3,8 +3,6 @@ import socket
 import time
 import subprocess
 
-
-
 public = '''-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDoLiYsRT56t1inNddmjUdlbT/U
 Vsw3FZYQLSyhgnuxB8QZVx1vAbVmTczRML3vpcG9VRPNJATAnIO8gce6L8MG9guL
