@@ -3,8 +3,7 @@ import socket
 import time
 import subprocess
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect((socket.gethostbyname(socket.gethostname()),999))
+
 
 public = '''-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDoLiYsRT56t1inNddmjUdlbT/U
@@ -31,13 +30,17 @@ def sendSymmetricKey(conn):
         
 
 def recvMessage(conn,cipher):
+    count = 0
     while True:
         try:
             header = int(conn.recv(64).decode())
             return cipher.decrypt(conn.recv(header))
         except Exception as e:
             pass
-    time.sleep(0.5)
+        if count > 25:
+            raise Exception ("No Connection.")
+        time.sleep(0.5)
+        count+=1
     
     
     
@@ -53,8 +56,17 @@ def sendMessage(conn,message,cipher):
     conn.send(message)
     
     
+
 print('CLient started..')
-cipher = Encryption(sendSymmetricKey(client))
+while True:
+    try:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((socket.gethostbyname(socket.gethostname()),999))
+        cipher = Encryption(sendSymmetricKey(client))
+        break
+    except:
+        time.sleep(3)
+
 while True:
     try:
         command = recvMessage(client,cipher).decode()
