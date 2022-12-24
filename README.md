@@ -1,3 +1,5 @@
+# Reverse Shell Socket Backdoor
+
 This program is a simple backdoor that allows you to run commands on the victim's side. It is completely encrypted using AES 128-bit encryption for the communication between the client and server.
 
 ### How it works
@@ -11,5 +13,5 @@ To successfully run the program, you need to install the required dependencies b
 ##### pip install -r requirements.txt
 You can use a tool like WireShark to verify that the session is completely encrypted.
 
-###Detection and evasion
+### Detection and evasion
 This program is designed to not be detected or blocked by any antivirus or endpoint detection and response (EDR) software. However, it is always a good idea to use caution when deploying and using such tools.
