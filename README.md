@@ -1,18 +1,15 @@
-# Revese Shell, Socket BackDoor
+This program is a simple backdoor that allows you to run commands on the victim's side. It is completely encrypted using AES 128-bit encryption for the communication between the client and server.
 
+### How it works
+- The client generates a random symmetric key, which is used to communicate with the server. The key is encrypted using RSA encryption and sent to the server.
+- The server receives the encrypted key and decrypts it using its private RSA key. A session is then established between the client and server, using AES encryption for complete end-to-end encryption.
+- The server can send commands to the client, which will execute them and send the output back to the server.
 
+### Running the program
+To successfully run the program, you need to install the required dependencies by running the following command:
 
-I've developed a simple backdoor whitch have the cabability to run commands on the victim's side.
-This program is complitly encrypted using:
+##### pip install -r requirements.txt
+You can use a tool like WireShark to verify that the session is completely encrypted.
 
-1.The client side generate a random symmetric key which will be used to communicate with the server using AES 128 bit encryption.
-To send the key to the server in cipher text, I've used RSA encryption 
-
-2.the server side received the key from the client and decrypts the key with his private RSA key and he will create a session that complitly encrypted side to side as I've mentioned using AES encryption.
-The server will send command to the client and the client'll send the output to the server.
-
-
-You can use WireShark to ensure that all the session is complitly encypted.
-
-
-The program doesn't get blocked or detected by any AV\EDR!
+###Detection and evasion
+This program is designed to not be detected or blocked by any antivirus or endpoint detection and response (EDR) software. However, it is always a good idea to use caution when deploying and using such tools.
